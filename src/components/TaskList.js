@@ -7,11 +7,17 @@ const TaskList = () => {
     const { tasks } = useContext(TaskListContext)
     return (
         <div>
-            {tasks.map((task)=>{
-                return<Task task={task} key={task.id} />
-            })}
+            {tasks.length ? (
+                <ul className="list">
+                    {tasks.map((task)=>{
+                        return<Task task={task} key={task.id} />
+                    })}
+                </ul>
+            ) : (
+                <div className="no-tasks"> No Tasks </div>
+            )}
         </div>
     )
-}
+} 
 
 export default TaskList
